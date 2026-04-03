@@ -487,22 +487,22 @@
         </div>
         <div class="entry-content">
           <div class="entry-top">
-            <span class="entry-org">OpenClaw — AI Agent 오픈소스 기여</span>
+            <span class="entry-org">OpenClaw — 오픈소스 AI Agent 프레임워크</span>
             <span class="entry-period">2025.10 – 현재</span>
           </div>
-          <div class="entry-role">Contributor</div>
-          <div class="entry-desc">널리 사용되는 AI Agent 프레임워크 OpenClaw에 문서 전처리 관련 기능 기여</div>
+          <div class="entry-role">Contributor &nbsp;·&nbsp; <a href="https://github.com/openclaw/openclaw" target="_blank" style="color:var(--accent);text-decoration:none;">github.com/openclaw/openclaw</a></div>
           <ul class="bullets">
-            <li>HWP/HWPX 파싱 모듈 구현 — 한글 문서 → 구조화 텍스트 변환</li>
-            <li>OCR 후처리 3단계 사전 보정 파이프라인 기여 (오인식 교정, 맞춤법, 도메인 용어)</li>
-            <li>시맨틱 청킹 설계 및 구현 — Gemini 임베딩 기반 코사인 유사도 경계 탐지, 800자 상한 강제 분할</li>
+            <li><a href="https://github.com/openclaw/openclaw/pull/60043" target="_blank" style="color:var(--accent);text-decoration:none;">#60043</a> — AI fallback 모델 전환 시 TUI가 chat log를 초기화하는 버그 수정 (per-attempt <code>state:error</code> 브로드캐스트 제거, run context 보존으로 fallback 성공 시 출력 보장)</li>
+            <li><a href="https://github.com/openclaw/openclaw/pull/59697" target="_blank" style="color:var(--accent);text-decoration:none;">#59697</a> — memory 플러그인이 주입한 <code>&lt;relevant-memories&gt;</code> 태그가 WebUI 유저 메시지 버블에 노출되는 버그 수정</li>
+            <li><a href="https://github.com/openclaw/openclaw/pull/60058" target="_blank" style="color:var(--accent);text-decoration:none;">#60058</a> — <code>read</code> 툴 핸들러에서 <code>filePath</code> camelCase alias 누락으로 발생하는 잘못된 경고 수정</li>
+            <li><a href="https://github.com/openclaw/openclaw/pull/60057" target="_blank" style="color:var(--accent);text-decoration:none;">#60057</a> — cron list에서 <code>job.name</code> undefined 시 <code>padEnd</code> 크래시 방지 null guard 추가</li>
+            <li><a href="https://github.com/openclaw/openclaw/pull/60073" target="_blank" style="color:var(--accent);text-decoration:none;">#60073</a> — gateway AJV 스키마에 <code>source</code> 필드 누락으로 control-UI 재연결 시 <code>INVALID_REQUEST</code> 반복 발생 수정</li>
           </ul>
           <div class="tech-tags">
-            <span class="tech-tag">Python</span>
-            <span class="tech-tag">HWP 파싱</span>
-            <span class="tech-tag">OCR 후처리</span>
-            <span class="tech-tag">Gemini API</span>
-            <span class="tech-tag">벡터 검색</span>
+            <span class="tech-tag">TypeScript</span>
+            <span class="tech-tag">Node.js</span>
+            <span class="tech-tag">AJV Schema</span>
+            <span class="tech-tag">WebSocket</span>
           </div>
         </div>
       </div>
@@ -521,15 +521,18 @@
           <div class="entry-role">개인 프로젝트</div>
           <div class="entry-desc">팀 회의록·법률문서·Notion·Discord 등 다양한 소스를 LLM 검색 가능한 지식베이스로 변환하는 파이프라인 설계·개발</div>
           <ul class="bullets">
+            <li>HWP/HWPX 파싱 모듈 구현 — 한글 문서 → 구조화 텍스트 변환</li>
+            <li>OCR 후처리 3단계 사전 보정 파이프라인 구현 (오인식 교정, 맞춤법, 도메인 용어)</li>
+            <li>시맨틱 청킹 설계 및 구현 — Gemini 임베딩 기반 코사인 유사도 경계 탐지, 800자 상한 강제 분할</li>
             <li>재인덱싱 후 임베딩 잘림 <b>0건</b>, 청크 수 <b>33~37% 감소</b> 달성</li>
-            <li>다양한 문서 포맷 (HWP, PDF, Notion, Discord, Obsidian) 통합 인제스트 파이프라인 구축</li>
             <li>시맨틱 검색 + BM25 하이브리드 랭킹 구현 — 9/9 쿼리 top-3 내 관련 문서 진입</li>
           </ul>
           <div class="tech-tags">
             <span class="tech-tag">Python</span>
-            <span class="tech-tag">FastAPI</span>
             <span class="tech-tag">Gemini API</span>
-            <span class="tech-tag">SQLite</span>
+            <span class="tech-tag">HWP 파싱</span>
+            <span class="tech-tag">OCR 후처리</span>
+            <span class="tech-tag">벡터 검색</span>
             <span class="tech-tag">Docker</span>
           </div>
         </div>
