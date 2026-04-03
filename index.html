@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>황재원 — 이력서</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --accent:   #1d4ed8;
+      --accent-light: #eff6ff;
+      --dark:     #0f172a;
+      --mid:      #334155;
+      --muted:    #64748b;
+      --border:   #e2e8f0;
+      --bg:       #f8fafc;
+      --white:    #ffffff;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Noto Sans KR', 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      font-size: 9.5pt;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── 페이지 ──────────────────────────────────── */
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 32px auto;
+      background: var(--white);
+      box-shadow: 0 4px 32px rgba(0,0,0,0.10), 0 1px 4px rgba(0,0,0,0.06);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    /* ─── 헤더 밴드 ──────────────────────────────── */
+    .hero {
+      background: var(--dark);
+      padding: 28px 32px 24px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .hero-left {}
+    .hero-name {
+      font-size: 30pt;
+      font-weight: 900;
+      color: var(--white);
+      letter-spacing: -0.5px;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .hero-name span {
+      color: #60a5fa;
+    }
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+    }
+    .hero-tag {
+      font-size: 7.5pt;
+      font-weight: 500;
+      color: #93c5fd;
+      background: rgba(96,165,250,0.12);
+      border: 1px solid rgba(96,165,250,0.25);
+      border-radius: 100px;
+      padding: 2px 9px;
+      letter-spacing: 0.2px;
+    }
+    .hero-right {
+      text-align: right;
+      flex-shrink: 0;
+    }
+    .hero-contact-row {
+      font-size: 8.5pt;
+      color: #94a3b8;
+      margin-bottom: 3px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 6px;
+    }
+    .hero-contact-row .icon {
+      width: 12px;
+      height: 12px;
+      opacity: 0.5;
+    }
+    .hero-contact-row a {
+      color: #94a3b8;
+      text-decoration: none;
+    }
+    .hero-contact-row a:hover { color: #60a5fa; }
+
+    /* ─── 본문 ───────────────────────────────────── */
+    .body {
+      padding: 24px 32px 28px;
+    }
+
+    /* ─── 섹션 ───────────────────────────────────── */
+    .section {
+      margin-bottom: 22px;
+    }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+    .section-label {
+      font-size: 7.5pt;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--accent);
+      white-space: nowrap;
+    }
+    .section-line {
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* ─── 학력 ───────────────────────────────────── */
+    .edu-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+    }
+    .edu-school {
+      font-weight: 700;
+      font-size: 10pt;
+    }
+    .edu-period {
+      font-size: 8.5pt;
+      color: var(--muted);
+    }
+    .edu-major {
+      font-size: 9pt;
+      color: var(--mid);
+      margin-top: 1px;
+    }
+
+    /* ─── 경험 카드 ──────────────────────────────── */
+    .entry {
+      display: flex;
+      gap: 14px;
+      margin-bottom: 18px;
+      position: relative;
+    }
+    .entry:last-child { margin-bottom: 0; }
+
+    .entry-timeline {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 3px;
+      flex-shrink: 0;
+      width: 14px;
+    }
+    .timeline-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+    .timeline-line {
+      flex: 1;
+      width: 1px;
+      background: var(--border);
+      margin-top: 4px;
+    }
+    .entry:last-child .timeline-line { display: none; }
+
+    .entry-content { flex: 1; min-width: 0; }
+
+    .entry-top {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 1px;
+    }
+    .entry-org {
+      font-weight: 700;
+      font-size: 10pt;
+      color: var(--dark);
+    }
+    .entry-period {
+      font-size: 8pt;
+      color: var(--muted);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .entry-role {
+      font-style: italic;
+      font-size: 9pt;
+      color: var(--muted);
+      margin-bottom: 5px;
+    }
+    .entry-desc {
+      font-size: 9pt;
+      color: var(--mid);
+      margin-bottom: 6px;
+    }
+
+    /* ─── 서브프로젝트 ──────────────────────────── */
+    .subproject {
+      margin-top: 8px;
+    }
+    .subproject-title {
+      font-size: 9pt;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 3px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .subproject-title::before {
+      content: '';
+      display: inline-block;
+      width: 3px;
+      height: 12px;
+      background: var(--accent);
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+
+    /* ─── 불릿 ───────────────────────────────────── */
+    ul.bullets {
+      list-style: none;
+      padding: 0;
+    }
+    ul.bullets li {
+      font-size: 9pt;
+      color: var(--mid);
+      padding-left: 14px;
+      position: relative;
+      margin-bottom: 2px;
+    }
+    ul.bullets li::before {
+      content: '–';
+      position: absolute;
+      left: 0;
+      color: #94a3b8;
+    }
+    ul.bullets li b, ul.bullets li strong {
+      font-weight: 600;
+      color: var(--dark);
+    }
+
+    /* ─── 기술 태그 ──────────────────────────────── */
+    .tech-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-top: 6px;
+    }
+    .tech-tag {
+      font-size: 7.5pt;
+      font-weight: 500;
+      color: var(--accent);
+      background: var(--accent-light);
+      border-radius: 4px;
+      padding: 2px 7px;
+      font-family: 'Inter', monospace;
+    }
+
+    /* ─── 수상 ───────────────────────────────────── */
+    .awards-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px 20px;
+    }
+    .award-item {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+    .award-year {
+      font-size: 8pt;
+      font-weight: 600;
+      color: var(--accent);
+      white-space: nowrap;
+      flex-shrink: 0;
+      width: 32px;
+    }
+    .award-text {
+      font-size: 9pt;
+      color: var(--mid);
+    }
+    .award-text b {
+      font-weight: 600;
+      color: var(--dark);
+    }
+
+    /* ─── 역량 ───────────────────────────────────── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px 16px;
+    }
+    .skill-group-title {
+      font-size: 8pt;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: var(--dark);
+      margin-bottom: 5px;
+      text-transform: uppercase;
+    }
+    .skill-pill-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+    .skill-pill {
+      font-size: 8.5pt;
+      color: var(--mid);
+      padding-left: 8px;
+      position: relative;
+    }
+    .skill-pill::before {
+      content: '·';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    /* ─── 자기소개 ───────────────────────────────── */
+    .intro-box {
+      background: var(--bg);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 6px 6px 0;
+      padding: 12px 16px;
+      font-size: 9.5pt;
+      color: var(--mid);
+      line-height: 1.75;
+    }
+
+    /* ─── 인쇄 ───────────────────────────────────── */
+    @media print {
+      body { background: #fff; font-size: 8.5pt; }
+      .page {
+        margin: 0;
+        box-shadow: none;
+        border-radius: 0;
+        width: 100%;
+        min-height: auto;
+      }
+      .hero { padding: 20px 24px 18px; }
+      .body { padding: 18px 24px 20px; }
+      a { color: inherit !important; text-decoration: none !important; }
+    }
+    @page { size: A4; margin: 0; }
+
+    /* ─── 반응형 (모바일) ─────────────────────────── */
+    @media (max-width: 720px) {
+      body { font-size: 10pt; }
+      .page {
+        width: 100%;
+        margin: 0;
+        border-radius: 0;
+        box-shadow: none;
+      }
+      .hero {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 24px 20px 20px;
+      }
+      .hero-right { text-align: left; }
+      .hero-contact-row { justify-content: flex-start; }
+      .body { padding: 20px; }
+      .skills-grid { grid-template-columns: 1fr 1fr; }
+      .awards-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ══ 헤더 ══════════════════════════════════════ -->
+  <div class="hero">
+    <div class="hero-left">
+      <div class="hero-name">황재원<span>.</span></div>
+      <div class="hero-tags">
+        <span class="hero-tag">#개발·자동화</span>
+        <span class="hero-tag">#AI·데이터전처리</span>
+        <span class="hero-tag">#서비스기획·운영</span>
+        <span class="hero-tag">#하드웨어개발</span>
+        <span class="hero-tag">#사무보조</span>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-contact-row">
+        <svg class="icon" viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h14a1 1 0 011 1v.5l-8 5-8-5V3zm0 2.236V16a1 1 0 001 1h14a1 1 0 001-1V5.236l-8 5-8-5z"/></svg>
+        <a href="mailto:0912078@gmail.com">0912078@gmail.com</a>
+      </div>
+      <div class="hero-contact-row">
+        <svg class="icon" viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-1.696.848a11.042 11.042 0 005.516 5.516l.848-1.696a1 1 0 011.21-.502l4.493 1.498A1 1 0 0118 16.72V18a1 1 0 01-1 1h-1C7.163 19 1 12.837 1 5V4a1 1 0 011-1z"/></svg>
+        010-3222-2426
+      </div>
+      <div class="hero-contact-row">
+        <svg class="icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z" clip-rule="evenodd"/></svg>
+        <a href="https://github.com/jwchmodx" target="_blank">github.com/jwchmodx</a>
+      </div>
+      <div class="hero-contact-row">
+        <svg class="icon" viewBox="0 0 20 20" fill="currentColor"><path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3z"/></svg>
+        고려대학교 전기전자공학부
+      </div>
+    </div>
+  </div>
+
+  <div class="body">
+
+    <!-- ══ 학력 ════════════════════════════════════ -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-label">Education</span>
+        <div class="section-line"></div>
+      </div>
+      <div class="edu-row">
+        <span class="edu-school">고려대학교</span>
+        <span class="edu-period">2021.03 ~ 재학 중</span>
+      </div>
+      <div class="edu-major">전기전자공학부</div>
+    </div>
+
+    <!-- ══ 경력 및 활동 ════════════════════════════ -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-label">Experience &amp; Activities</span>
+        <div class="section-line"></div>
+      </div>
+
+      <!-- SW 마에스트로 -->
+      <div class="entry">
+        <div class="entry-timeline">
+          <div class="timeline-dot"></div>
+          <div class="timeline-line"></div>
+        </div>
+        <div class="entry-content">
+          <div class="entry-top">
+            <span class="entry-org">SW 마에스트로 13기</span>
+            <span class="entry-period">2022.04 – 2023.01</span>
+          </div>
+          <div class="entry-role">기획·개발·운영 — 과학기술정보통신부 주관 SW 인재 양성 프로그램</div>
+          <div class="subproject">
+            <div class="subproject-title">Focus50 — 비대면 집중 스터디 플랫폼</div>
+            <ul class="bullets">
+              <li>서비스 출시 <b>3개월</b> 만에 누적 방문자 <b>1만 명</b> 달성, 월간 리텐션 <b>26%</b></li>
+              <li>유저 일 평균 이용 시간 3.38시간, 로열 유저 Top5 누적 177시간</li>
+              <li>노쇼율 38% → 19.5% 절감 — 카카오톡 알림 Cron Job 도입</li>
+              <li>MZ세대 비대면 스터디 문화 보도자료 작성 및 언론 배포 (디아이투데이)</li>
+              <li>디스콰이엇 실시간 트렌딩 프로덕트 <b>1위</b> 1주일 유지</li>
+            </ul>
+            <div class="tech-tags">
+              <span class="tech-tag">Flutter</span>
+              <span class="tech-tag">Node.js</span>
+              <span class="tech-tag">Firebase</span>
+              <span class="tech-tag">MySQL</span>
+              <span class="tech-tag">WebRTC</span>
+              <span class="tech-tag">Oracle Cloud</span>
+              <span class="tech-tag">GitHub Actions</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- OpenClaw -->
+      <div class="entry">
+        <div class="entry-timeline">
+          <div class="timeline-dot"></div>
+          <div class="timeline-line"></div>
+        </div>
+        <div class="entry-content">
+          <div class="entry-top">
+            <span class="entry-org">OpenClaw — AI Agent 오픈소스 기여</span>
+            <span class="entry-period">2025.10 – 현재</span>
+          </div>
+          <div class="entry-role">Contributor</div>
+          <div class="entry-desc">널리 사용되는 AI Agent 프레임워크 OpenClaw에 문서 전처리 관련 기능 기여</div>
+          <ul class="bullets">
+            <li>HWP/HWPX 파싱 모듈 구현 — 한글 문서 → 구조화 텍스트 변환</li>
+            <li>OCR 후처리 3단계 사전 보정 파이프라인 기여 (오인식 교정, 맞춤법, 도메인 용어)</li>
+            <li>시맨틱 청킹 설계 및 구현 — Gemini 임베딩 기반 코사인 유사도 경계 탐지, 800자 상한 강제 분할</li>
+          </ul>
+          <div class="tech-tags">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">HWP 파싱</span>
+            <span class="tech-tag">OCR 후처리</span>
+            <span class="tech-tag">Gemini API</span>
+            <span class="tech-tag">벡터 검색</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- PartnerAI -->
+      <div class="entry">
+        <div class="entry-timeline">
+          <div class="timeline-dot"></div>
+          <div class="timeline-line"></div>
+        </div>
+        <div class="entry-content">
+          <div class="entry-top">
+            <span class="entry-org">PartnerAI — 개인 LLM 지식베이스 파이프라인</span>
+            <span class="entry-period">2025.10 – 현재</span>
+          </div>
+          <div class="entry-role">개인 프로젝트</div>
+          <div class="entry-desc">팀 회의록·법률문서·Notion·Discord 등 다양한 소스를 LLM 검색 가능한 지식베이스로 변환하는 파이프라인 설계·개발</div>
+          <ul class="bullets">
+            <li>재인덱싱 후 임베딩 잘림 <b>0건</b>, 청크 수 <b>33~37% 감소</b> 달성</li>
+            <li>다양한 문서 포맷 (HWP, PDF, Notion, Discord, Obsidian) 통합 인제스트 파이프라인 구축</li>
+            <li>시맨틱 검색 + BM25 하이브리드 랭킹 구현 — 9/9 쿼리 top-3 내 관련 문서 진입</li>
+          </ul>
+          <div class="tech-tags">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">FastAPI</span>
+            <span class="tech-tag">Gemini API</span>
+            <span class="tech-tag">SQLite</span>
+            <span class="tech-tag">Docker</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- HandS -->
+      <div class="entry">
+        <div class="entry-timeline">
+          <div class="timeline-dot"></div>
+          <div class="timeline-line"></div>
+        </div>
+        <div class="entry-content">
+          <div class="entry-top">
+            <span class="entry-org">HandS — 고려대학교 전기전자공학회</span>
+            <span class="entry-period">2025.03 – 현재</span>
+          </div>
+
+          <div class="subproject">
+            <div class="subproject-title">체스로봇 제작</div>
+            <ul class="bullets">
+              <li>프로젝트 팀장으로 <b>7개월</b>간 팀 운영</li>
+              <li><b>Computer Vision</b> — OpenCV 기반 초록 마커 윤곽 검출, 원근 변환(warp) 및 흔들림 보정으로 체스판 안정적 인식</li>
+              <li><b>AI 모델</b> — ResNet 기반 기물 분류 모델 개발 및 이미지 전처리 파이프라인 구축</li>
+              <li><b>AI 브레인</b> — Stockfish 엔진 연동, 체스 기보(notation) 파싱, 캐슬링·앙파상 등 특수 규칙 처리</li>
+              <li><b>Inverse Kinematics</b> — 서보 PWM 계산 및 캘리브레이션 루틴 구현으로 로봇팔 정밀 동작 제어</li>
+              <li>완성 후 재학생 4명과 실제 대국 진행</li>
+            </ul>
+            <div class="tech-tags">
+              <span class="tech-tag">OpenCV</span>
+              <span class="tech-tag">ResNet</span>
+              <span class="tech-tag">Stockfish</span>
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">Inverse Kinematics</span>
+            </div>
+          </div>
+
+          <div class="subproject" style="margin-top:10px;">
+            <div class="subproject-title">커피 생두 분류기 제작</div>
+            <ul class="bullets">
+              <li>분류기 하드웨어 개발 전담 — 회로 설계, 구동부 제작</li>
+              <li>AI 분류 모델 개발 및 데이터 전처리 수행 — 생두 이미지 라벨링·증강·학습</li>
+              <li>대회 출품 및 <b>우수상 수상</b></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ══ 수상 및 선발 ════════════════════════════ -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-label">Awards &amp; Honors</span>
+        <div class="section-line"></div>
+      </div>
+      <div class="awards-grid">
+        <div class="award-item">
+          <span class="award-year">2022</span>
+          <span class="award-text">SW마에스트로 <b>우수 인증팀</b> 선발</span>
+        </div>
+        <div class="award-item">
+          <span class="award-year">2022</span>
+          <span class="award-text">공군 창업경진대회 <b>창의상</b></span>
+        </div>
+        <div class="award-item">
+          <span class="award-year">2022</span>
+          <span class="award-text">국방 창업경진대회 <b>창의상</b></span>
+        </div>
+        <div class="award-item">
+          <span class="award-year">2022</span>
+          <span class="award-text">Google Winter Cup <b>본선 진출</b></span>
+        </div>
+        <div class="award-item">
+          <span class="award-year">2022</span>
+          <span class="award-text">카카오 구름톤 합격 (합격률 1:27)</span>
+        </div>
+        <div class="award-item">
+          <span class="award-year">2025</span>
+          <span class="award-text">HandS 생두 분류기 대회 <b>우수상</b></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ 보유 역량 ════════════════════════════════ -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-label">Skills</span>
+        <div class="section-line"></div>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-group">
+          <div class="skill-group-title">개발</div>
+          <div class="skill-pill-wrap">
+            <span class="skill-pill">Node.js — RESTful API</span>
+            <span class="skill-pill">Flutter (MVVM, Riverpod)</span>
+            <span class="skill-pill">Firebase · MySQL</span>
+            <span class="skill-pill">GitHub Actions CI/CD</span>
+            <span class="skill-pill">Shell 스크립트 자동화</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-title">AI · 데이터 전처리</div>
+          <div class="skill-pill-wrap">
+            <span class="skill-pill">OpenCV — 이미지 전처리</span>
+            <span class="skill-pill">ResNet 분류 모델</span>
+            <span class="skill-pill">OCR 후처리 파이프라인</span>
+            <span class="skill-pill">시맨틱 청킹 / 벡터 검색</span>
+            <span class="skill-pill">HWP 파싱 · LLM 파이프라인</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-title">사무 · 협업</div>
+          <div class="skill-pill-wrap">
+            <span class="skill-pill">Jira · Confluence</span>
+            <span class="skill-pill">Slack · GitHub</span>
+            <span class="skill-pill">Amplitude — 데이터 분석</span>
+            <span class="skill-pill">보도자료 작성 · 배포</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-title">하드웨어</div>
+          <div class="skill-pill-wrap">
+            <span class="skill-pill">Inverse Kinematics</span>
+            <span class="skill-pill">서보 PWM 제어</span>
+            <span class="skill-pill">회로 설계 · 구동부 제작</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ 자기소개 ════════════════════════════════ -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-label">About</span>
+        <div class="section-line"></div>
+      </div>
+      <div class="intro-box">
+        반복적인 업무를 자동화하고 팀의 생산성을 높이는 데 관심이 많습니다.
+        SW마에스트로에서 서비스 기획부터 개발·운영·홍보까지 전 과정을 직접 수행하며 실무 감각을 키웠고,
+        팀장으로서 7개월간 하드웨어 프로젝트를 이끈 경험도 있습니다.<br /><br />
+        개인 프로젝트로는 HWP 파싱·OCR 후처리·시맨틱 청킹을 아우르는 문서 전처리 파이프라인을 직접 설계·구현했으며,
+        체스로봇에서는 OpenCV 이미지 전처리와 ResNet 기반 AI 분류 모델, Inverse Kinematics를 담당했습니다.
+        개발 역량을 바탕으로 사무 업무의 효율화에 기여할 수 있으며,
+        문서 작성·데이터 정리·일정 관리 등 사무 보조 업무도 성실히 수행하겠습니다.
+      </div>
+    </div>
+
+  </div><!-- /body -->
+</div><!-- /page -->
+</body>
+</html>
