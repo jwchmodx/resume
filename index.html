@@ -502,7 +502,7 @@
         </div>
       </div>
 
-      <!-- OpenClaw -->
+      <!-- Open Source Contributions -->
       <div class="entry">
         <div class="entry-timeline">
           <div class="timeline-dot"></div>
@@ -510,23 +510,79 @@
         </div>
         <div class="entry-content">
           <div class="entry-top">
-            <span class="entry-org">OpenClaw — 오픈소스 AI Agent 프레임워크</span>
+            <span class="entry-org">오픈소스 컨트리뷰션</span>
             <span class="entry-period">2025.10 – 현재</span>
           </div>
-          <div class="entry-role">Contributor &nbsp;·&nbsp; <a href="https://github.com/openclaw/openclaw" target="_blank" style="color:#333;text-decoration:underline;text-underline-offset:2px;">github.com/openclaw/openclaw</a></div>
-          <ul class="bullets">
-            <li><a href="https://github.com/openclaw/openclaw/pull/60043" target="_blank" style="color:#333;text-decoration:underline;text-underline-offset:2px;">#60043</a> — AI fallback 모델 전환 시 TUI가 chat log를 초기화하는 버그 수정 (per-attempt <code>state:error</code> 브로드캐스트 제거, run context 보존으로 fallback 성공 시 출력 보장)</li>
-            <li><a href="https://github.com/openclaw/openclaw/pull/59697" target="_blank" style="color:#333;text-decoration:underline;text-underline-offset:2px;">#59697</a> — memory 플러그인이 주입한 <code>&lt;relevant-memories&gt;</code> 태그가 WebUI 유저 메시지 버블에 노출되는 버그 수정</li>
-            <li><a href="https://github.com/openclaw/openclaw/pull/60058" target="_blank" style="color:#333;text-decoration:underline;text-underline-offset:2px;">#60058</a> — <code>read</code> 툴 핸들러에서 <code>filePath</code> camelCase alias 누락으로 발생하는 잘못된 경고 수정</li>
-            <li><a href="https://github.com/openclaw/openclaw/pull/60057" target="_blank" style="color:#333;text-decoration:underline;text-underline-offset:2px;">#60057</a> — cron list에서 <code>job.name</code> undefined 시 <code>padEnd</code> 크래시 방지 null guard 추가</li>
-            <li><a href="https://github.com/openclaw/openclaw/pull/60073" target="_blank" style="color:#333;text-decoration:underline;text-underline-offset:2px;">#60073</a> — gateway AJV 스키마에 <code>source</code> 필드 누락으로 control-UI 재연결 시 <code>INVALID_REQUEST</code> 반복 발생 수정</li>
-          </ul>
-          <div class="tech-tags">
-            <span class="tech-tag">TypeScript</span>
-            <span class="tech-tag">Node.js</span>
-            <span class="tech-tag">AJV Schema</span>
-            <span class="tech-tag">WebSocket</span>
+          <div class="entry-role">AI 자동 문서화·지식 그래프·에이전트 분야 핵심 오픈소스 프로젝트 기여</div>
+
+          <!-- LightRAG -->
+          <div class="subproject">
+            <div class="subproject-title">HKUDS/LightRAG — 온톨로지 기반 지식 그래프 RAG <span style="font-weight:400;font-size:8pt;color:#888;">(EMNLP 2025)</span></div>
+            <div style="font-size:8.5pt;color:#555;margin-bottom:4px;">문서에서 엔티티·관계를 자동 추출해 온톨로지 형태의 지식 그래프를 구축하고, 그래프 순회 기반 쿼리로 단순 벡터 검색이 놓치는 복잡한 추론을 가능케 하는 RAG 프레임워크</div>
+            <ul class="bullets">
+              <li><a href="https://github.com/HKUDS/LightRAG/pull/2884" target="_blank" style="color:#333;">#2884</a> — <code>ainsert_custom_kg</code>에 커스텀 필드 지원 추가 — 도메인 특화 온톨로지 속성 확장 가능</li>
+              <li><a href="https://github.com/HKUDS/LightRAG/pull/2883" target="_blank" style="color:#333;">#2883</a> — <code>/query</code> 응답에 LLM 토큰 사용량 노출 — 비용 추적 및 파이프라인 모니터링 지원</li>
+              <li><a href="https://github.com/HKUDS/LightRAG/pull/2881" target="_blank" style="color:#333;">#2881</a> — 쿼리 캐시 키에 retrieved context 포함 — 동일 질문에 다른 컨텍스트가 섞이는 캐시 오염 수정</li>
+              <li><a href="https://github.com/HKUDS/LightRAG/pull/2879" target="_blank" style="color:#333;">#2879</a> — 배치 삭제 시 KG 재빌드를 단일 패스로 최적화 (perf)</li>
+              <li><a href="https://github.com/HKUDS/LightRAG/pull/2886" target="_blank" style="color:#333;">#2886</a> · <a href="https://github.com/HKUDS/LightRAG/pull/2885" target="_blank" style="color:#333;">#2885</a> · <a href="https://github.com/HKUDS/LightRAG/pull/2882" target="_blank" style="color:#333;">#2882</a> · <a href="https://github.com/HKUDS/LightRAG/pull/2880" target="_blank" style="color:#333;">#2880</a> · <a href="https://github.com/HKUDS/LightRAG/pull/2877" target="_blank" style="color:#333;">#2877</a> — 파이프라인 중 문서 삭제 안정화, references 억제, 중복 응답 doc_id 포함, 일시적 400 오류 재시도, 엣지 병합 버그 수정 등</li>
+            </ul>
+            <div class="tech-tags">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">Knowledge Graph</span>
+              <span class="tech-tag">Ontology</span>
+              <span class="tech-tag">RAG</span>
+              <span class="tech-tag">LLM</span>
+            </div>
           </div>
+
+          <!-- RAG-Anything -->
+          <div class="subproject" style="margin-top:10px;">
+            <div class="subproject-title">HKUDS/RAG-Anything — 멀티모달 AI 자동 문서화 파이프라인</div>
+            <div style="font-size:8.5pt;color:#555;margin-bottom:4px;">PDF·이미지·표·수식·코드 등 어떤 포맷의 문서든 자동 파싱·구조화하여 LightRAG 지식 그래프로 통합하는 전처리 파이프라인</div>
+            <ul class="bullets">
+              <li><a href="https://github.com/HKUDS/RAG-Anything/pull/239" target="_blank" style="color:#333;">#239</a> — MD5 매니페스트 기반 증분 폴더 스캔 — 변경된 파일만 재색인하여 불필요한 파싱 비용 제거</li>
+              <li><a href="https://github.com/HKUDS/RAG-Anything/pull/240" target="_blank" style="color:#333;">#240</a> — 미초기화 LightRAG 크래시·환경변수 파싱 오류·파서 리소스 누수 방지</li>
+              <li><a href="https://github.com/HKUDS/RAG-Anything/pull/238" target="_blank" style="color:#333;">#238</a> · <a href="https://github.com/HKUDS/RAG-Anything/pull/237" target="_blank" style="color:#333;">#237</a> · <a href="https://github.com/HKUDS/RAG-Anything/pull/236" target="_blank" style="color:#333;">#236</a> — Ollama 연동 예제 추가, LibreOffice 경고 레벨 조정, <code>&lt;think&gt;</code> 태그 스트리핑</li>
+            </ul>
+            <div class="tech-tags">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">멀티모달 파싱</span>
+              <span class="tech-tag">문서 자동화</span>
+              <span class="tech-tag">LightRAG</span>
+            </div>
+          </div>
+
+          <!-- OpenClaw -->
+          <div class="subproject" style="margin-top:10px;">
+            <div class="subproject-title">openclaw/openclaw — AI Agent 프레임워크</div>
+            <div style="font-size:8.5pt;color:#555;margin-bottom:4px;">멀티모델 LLM 라우팅·플러그인·메모리·WebUI를 갖춘 오픈소스 AI 에이전트 프레임워크 (<b>12개</b> PR 기여)</div>
+            <ul class="bullets">
+              <li><a href="https://github.com/openclaw/openclaw/pull/60043" target="_blank" style="color:#333;">#60043</a> — fallback 모델 전환 시 TUI chat log 초기화 버그 수정 (run context 보존)</li>
+              <li><a href="https://github.com/openclaw/openclaw/pull/60290" target="_blank" style="color:#333;">#60290</a> — 에이전트 실행 완료 후 터미널 상태 복원 누락 수정</li>
+              <li><a href="https://github.com/openclaw/openclaw/pull/60248" target="_blank" style="color:#333;">#60248</a> — loop 감지 임계값 초과 시 <code>generic_repeat</code>을 critical로 에스컬레이션</li>
+              <li><a href="https://github.com/openclaw/openclaw/pull/60254" target="_blank" style="color:#333;">#60254</a> · <a href="https://github.com/openclaw/openclaw/pull/60073" target="_blank" style="color:#333;">#60073</a> · <a href="https://github.com/openclaw/openclaw/pull/59697" target="_blank" style="color:#333;">#59697</a> · <a href="https://github.com/openclaw/openclaw/pull/60058" target="_blank" style="color:#333;">#60058</a> · <a href="https://github.com/openclaw/openclaw/pull/60057" target="_blank" style="color:#333;">#60057</a> — MiniMax usage_percent 반전, gateway AJV 스키마, 메모리 태그 노출, 경로 alias, cron null guard 등</li>
+            </ul>
+            <div class="tech-tags">
+              <span class="tech-tag">TypeScript</span>
+              <span class="tech-tag">Node.js</span>
+              <span class="tech-tag">AI Agent</span>
+              <span class="tech-tag">WebSocket</span>
+            </div>
+          </div>
+
+          <!-- KittyCAD -->
+          <div class="subproject" style="margin-top:10px;">
+            <div class="subproject-title">KittyCAD/modeling-app — 3D CAD 모델링 앱</div>
+            <ul class="bullets">
+              <li><a href="https://github.com/KittyCAD/modeling-app/pull/10028" target="_blank" style="color:#333;">#10028</a> · <a href="https://github.com/KittyCAD/modeling-app/pull/10027" target="_blank" style="color:#333;">#10027</a> · <a href="https://github.com/KittyCAD/modeling-app/pull/10026" target="_blank" style="color:#333;">#10026</a> — 앱 폰트 사이즈 설정, 프로젝트명 기본 파일명 적용, boolean 타입 처리 수정</li>
+            </ul>
+            <div class="tech-tags">
+              <span class="tech-tag">TypeScript</span>
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">KCL</span>
+            </div>
+          </div>
+
         </div>
       </div>
 
@@ -657,14 +713,15 @@
           </div>
         </div>
         <div class="skill-group">
-          <div class="skill-group-title">AI · 데이터 전처리</div>
+          <div class="skill-group-title">AI · 문서자동화</div>
           <div class="skill-pill-wrap">
-            <span class="skill-pill">Action Recognition (UniformerV2)</span>
-            <span class="skill-pill">OpenCV — 이미지 전처리</span>
-            <span class="skill-pill">ResNet 분류 모델</span>
-            <span class="skill-pill">OCR 후처리 파이프라인</span>
+            <span class="skill-pill">Knowledge Graph (LightRAG)</span>
+            <span class="skill-pill">온톨로지 설계 · 엔티티 추출</span>
+            <span class="skill-pill">멀티모달 문서 파싱 (RAG-Anything)</span>
             <span class="skill-pill">시맨틱 청킹 / 벡터 검색</span>
-            <span class="skill-pill">HWP 파싱 · LLM 파이프라인</span>
+            <span class="skill-pill">HWP 파싱 · OCR 후처리</span>
+            <span class="skill-pill">Action Recognition (UniformerV2)</span>
+            <span class="skill-pill">OpenCV · ResNet 분류 모델</span>
           </div>
         </div>
         <div class="skill-group">
@@ -695,14 +752,13 @@
         <div class="section-line"></div>
       </div>
       <div class="intro-box">
-        반복적인 업무를 자동화하고 팀의 생산성을 높이는 데 관심이 많습니다.
-        SW마에스트로에서 서비스 기획부터 개발·운영·홍보까지 전 과정을 직접 수행하며 실무 감각을 키웠고,
-        BEEP 프로젝트에서는 영상인식 AI와 엣지 컴퓨팅 하드웨어를 결합한 에듀테크 제품을 창업한 경험이 있습니다.
-        팀장으로서 7개월간 하드웨어 프로젝트를 이끈 경험도 있습니다.<br /><br />
+        AI 자동 문서화와 온톨로지 기반 지식 구조화에 깊은 관심을 가지고 있습니다.
+        EMNLP 2025 논문 기반 프로젝트인 LightRAG(지식 그래프 RAG)와 RAG-Anything(멀티모달 문서 자동화)에 컨트리뷰터로 참여하며,
+        문서에서 엔티티·관계를 추출해 온톨로지로 구조화하고 그래프 기반 추론으로 검색 품질을 높이는 실무 경험을 쌓고 있습니다.<br /><br />
+        SW마에스트로에서 서비스 기획·개발·운영·홍보 전 과정을 직접 수행했고,
+        BEEP 프로젝트에서는 영상인식 AI와 엣지 컴퓨팅 하드웨어를 결합한 에듀테크 제품을 창업했습니다.
         개인 프로젝트로는 HWP 파싱·OCR 후처리·시맨틱 청킹을 아우르는 문서 전처리 파이프라인을 직접 설계·구현했으며,
-        체스로봇에서는 OpenCV 이미지 전처리와 ResNet 기반 AI 분류 모델, Inverse Kinematics를 담당했습니다.
-        개발 역량을 바탕으로 사무 업무의 효율화에 기여할 수 있으며,
-        문서 작성·데이터 정리·일정 관리 등 사무 보조 업무도 성실히 수행하겠습니다.
+        개발 역량을 바탕으로 사무 업무의 효율화에 기여할 수 있고, 문서 작성·데이터 정리·일정 관리 등 사무 보조 업무도 성실히 수행하겠습니다.
       </div>
     </div>
 
